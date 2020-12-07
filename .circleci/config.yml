@@ -9,7 +9,7 @@ aliases:
   - &show-current-branch-name
     run:
       name: Show current branch
-      command: echo ${CIRCLE_BRANCH}   
+      command: echo ${CIRCLE_BRANCH}
   - &restore-cache
     restore_cache:
       keys:
@@ -50,7 +50,7 @@ jobs:
       - *show-current-branch-name
       - *restore-cache
       - *install-dependencies
-      - *save-cache 
+      - *save-cache
 
   deploy-to-aws-s3:
     executor: app-executor
@@ -58,7 +58,7 @@ jobs:
       - checkout
       - *show-current-branch-name
       - *install-aws-cli
-      - *build-project
+      - *build-projects
       - run:
           name: Deploy to AWS S3
           command: |
@@ -78,7 +78,7 @@ jobs:
       - checkout
       - *show-current-branch-name
       - *install-aws-cli
-      - *build-project
+      - *build-projects
       - run:
           name: Deploy to AWS Cloudfront
           command: |
