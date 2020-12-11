@@ -30,7 +30,7 @@ const paginate = (props) => {
 paginate.propTypes = {
   currentPage: PropTypes.number.isRequired,
   totalPages: PropTypes.number.isRequired,
-  paginate: PropTypes.function.isRequired
+  paginate: PropTypes.func.isRequired
 };
 
 export default paginate;
